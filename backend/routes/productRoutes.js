@@ -3,7 +3,6 @@ import asyncHandler from "express-async-handler";
 const router = express.Router()
 import Product from "../models/productModel.js"
 
-
 //  @desc Fetch all products
 //  @route Get /api/products
 //  @access Public
@@ -25,7 +24,9 @@ import Product from "../models/productModel.js"
         res.json(product);
 
     }else{
-        res.status(404).json({message: "Product not found"})
+        res.status(404)
+        throw new Error('Product not found')
+       
     }
   }));
   
