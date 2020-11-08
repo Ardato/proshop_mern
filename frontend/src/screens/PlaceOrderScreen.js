@@ -6,7 +6,6 @@ import {
   ListGroup,
   Image,
   Card,
-  ListGroupItem,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -77,7 +76,7 @@ const PlaceOrderScreen = ({ history }) => {
               </p>
             </ListGroup.Item>
             <ListGroup.Item>
-              <h2>Peyment Method</h2>
+              <h2>Payment Method</h2>
 
               <strong>Method:</strong>
               {cart.paymentMethod}
@@ -126,7 +125,7 @@ const PlaceOrderScreen = ({ history }) => {
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                  <Col>Items</Col>
+                  <Col>Items Price</Col>
                   <Col>${cart.itemsPrice}</Col>
                 </Row>
               </ListGroup.Item>

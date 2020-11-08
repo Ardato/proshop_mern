@@ -106,7 +106,7 @@ const CartScreen = ({ match, location, history }) => {
             disabled={cartItems.length === 0}
             onClick={checkoutHandler}
           >
-            Procced To Checkout
+            Proceed  To Checkout
           </Button>
         </Card>
       </Col>
