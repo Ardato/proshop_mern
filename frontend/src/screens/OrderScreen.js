@@ -60,7 +60,7 @@ const OrderScreen = ({ match }) => {
 
   const successPaymentHandler = (paymentResult) => {
     console.log(paymentResult);
-    dispatch(payOrder(orderId,  ));
+    dispatch(payOrder(orderId,paymentResult));
   };
 
   return loading ? (
@@ -95,11 +95,11 @@ const OrderScreen = ({ match }) => {
                   Delivered on {order.deliveredAt}
                 </Message>
               ) : (
-                <Message variant="danger">No Delivered</Message>
+                <Message variant="danger">Not Delivered</Message>
               )}
             </ListGroup.Item>
             <ListGroup.Item>
-              <h2>Peyment Method</h2>
+              <h2>Payment Method</h2>
 
               <p>
                 {" "}
@@ -109,12 +109,12 @@ const OrderScreen = ({ match }) => {
               {order.isPaid ? (
                 <Message variant="success">Paid on {order.paidAt}</Message>
               ) : (
-                <Message variant="danger">No Paid</Message>
+                <Message variant="danger">Not Paid</Message>
               )}
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>Order Items</h2>
+              <h2>ordered Items</h2>
               {order.orderItems.length === 0 ? (
                 <Message>order is empty</Message>
               ) : (
@@ -141,10 +141,12 @@ const OrderScreen = ({ match }) => {
                         </Col>
                       </Row>
                     </ListGroup.Item>
+
                   ))}
                 </ListGroup>
               )}
             </ListGroup.Item>
+            
           </ListGroup>
         </Col>
 
@@ -156,7 +158,7 @@ const OrderScreen = ({ match }) => {
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                  <Col>Items Price</Col>
+                  <Col>Subtotal</Col>
                   <Col>${order.itemsPrice}</Col>
                 </Row>
               </ListGroup.Item>
