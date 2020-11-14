@@ -160,7 +160,6 @@ const updateUser = asyncHandler(async (req, res) => {
     user.isAdmin = req.body.isAdmin || user.isAdmin
 
     
-
     const updateUser = await user.save();
     res.json({
       _id: updateUser._id,
