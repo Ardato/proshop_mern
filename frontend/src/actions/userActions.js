@@ -1,4 +1,5 @@
 import axios from "axios";
+import { CART_RESET_SHIPPING_ADDRESS } from "../constans/cartConstans";
 import { ORDER_LIST_MY_RESET } from "../constans/orderConstans";
 import {
   USER_LOGIN_REQUEST,
@@ -289,6 +290,9 @@ export const logout = () => (disptach) => {
   });
   disptach({
     type: USER_LIST_RESET,
+  });
+  disptach({
+    type: CART_RESET_SHIPPING_ADDRESS,
   });
 
   localStorage.removeItem("userInfo");

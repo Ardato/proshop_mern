@@ -1,4 +1,9 @@
-import { CART_ADD_ITEM, CART_REMOVE_ITEM, CART_SAVE_PAYMENT_METHOD } from "../constans/cartConstans";
+import {
+  CART_ADD_ITEM,
+  CART_REMOVE_ITEM,
+  CART_RESET_SHIPPING_ADDRESS,
+  CART_SAVE_PAYMENT_METHOD,
+} from "../constans/cartConstans";
 import { CART_SAVE_SHIPPING_ADDRESS } from "../constans/cartConstans";
 
 export const cartReducer = (
@@ -39,6 +44,8 @@ export const cartReducer = (
         ...state,
         paymentMethod: action.payload,
       };
+    case CART_RESET_SHIPPING_ADDRESS:
+      return { ...state,shippingAddress: {} };
     default:
       return state;
   }

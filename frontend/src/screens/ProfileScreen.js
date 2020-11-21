@@ -130,7 +130,7 @@ const ProfileScreen = ({ location, history }) => {
                   <td>
                     {new Date(order.createdAt).toLocaleDateString("en-GB")}
                   </td>
-                  <td>{order.totalPrice}</td>
+                  <td>${order.totalPrice}</td>
                   <td>
                     {order.isPaid ? (
                       new Date(order.paidAt).toLocaleDateString("en-GB")
@@ -141,7 +141,7 @@ const ProfileScreen = ({ location, history }) => {
 
                   <td>
                     {order.isDelivered ? (
-                      new Date(order.delivered).toLocaleDateString("en-GB")
+                      new Date(order.deliveredAt).toLocaleDateString("en-GB")
                     ) : (
                       <i className="fas fa-times" style={{ color: "red" }}></i>
                     )}

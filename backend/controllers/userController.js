@@ -146,8 +146,7 @@ const getUserById = asyncHandler(async (req, res) => {
   }
 });
 
-
-//  @desc Update user 
+//  @desc Update user
 //  @route PUT/api/users/:id
 //  @access Private/Admin
 
@@ -157,16 +156,14 @@ const updateUser = asyncHandler(async (req, res) => {
   if (user) {
     user.name = req.body.name || user.name;
     user.email = req.body.email || user.email;
-    user.isAdmin = req.body.isAdmin || user.isAdmin
+    user.isAdmin = req.body.isAdmin || user.isAdmin;
 
-    
     const updateUser = await user.save();
     res.json({
       _id: updateUser._id,
       name: updateUser.name,
       email: updateUser.email,
       isAdmin: updateUser.isAdmin,
-
     });
   } else {
     res.status(401);
@@ -182,5 +179,5 @@ export {
   getUsers,
   deleteUser,
   getUserById,
-  updateUser
+  updateUser,
 };
