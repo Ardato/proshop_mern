@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import FormContainer from "../components/FormContainer";
 import { saveShippingAddress } from "../actions/cartActions";
 import CheckoutSteps from "../components/CheckoutSteps";
-
+import { CART_RESET_SHIPPING_ADDRESS } from "../constans/cartConstans";
 
 const ShippingScreen = ({ history }) => {
+
   const dispatch = useDispatch();
+  
   const cart = useSelector((state) => state.cart);
+
   const { shippingAddress } = cart;
 
   const [address, setAddress] = useState(shippingAddress.address);
@@ -22,7 +25,10 @@ const ShippingScreen = ({ history }) => {
     history.push("/payment");
   };
 
- 
+  useEffect(() => {
+    dispatch({ type: CART_RESET_SHIPPING_ADDRESS });
+  }, [dispatch]);
+
   return (
     <FormContainer>
       <CheckoutSteps step1 step2 />
